@@ -16,6 +16,7 @@
 		88C8419126B2194300D658FA /* CardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 88C8419026B2194300D658FA /* CardScan */; };
 		88C8419426B21A1200D658FA /* SimpleCreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8419326B21A1200D658FA /* SimpleCreditCardInfo.swift */; };
 		88C8419726B21DFC00D658FA /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8419626B21DFC00D658FA /* CardScanner.swift */; };
+		88C8419B26B23ECF00D658FA /* CreditCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8419A26B23ECE00D658FA /* CreditCardRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		88C8418226B215A200D658FA /* CreditCardScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScanUITests.swift; sourceTree = "<group>"; };
 		88C8419326B21A1200D658FA /* SimpleCreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCreditCardInfo.swift; sourceTree = "<group>"; };
 		88C8419626B21DFC00D658FA /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
+		88C8419A26B23ECE00D658FA /* CreditCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		88C8419526B21A9900D658FA /* views */ = {
 			isa = PBXGroup;
 			children = (
+				88C8419A26B23ECE00D658FA /* CreditCardRow.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C8419726B21DFC00D658FA /* CardScanner.swift in Sources */,
+				88C8419B26B23ECF00D658FA /* CreditCardRow.swift in Sources */,
 				88C8419426B21A1200D658FA /* SimpleCreditCardInfo.swift in Sources */,
 				88C8416A26B2159C00D658FA /* ContentView.swift in Sources */,
 				88C8416826B2159C00D658FA /* CreditCardScanApp.swift in Sources */,

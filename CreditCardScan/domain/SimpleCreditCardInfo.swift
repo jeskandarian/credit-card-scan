@@ -2,7 +2,9 @@
 
 import Foundation
 
-struct SimpleCreditCardInfo{
+struct SimpleCreditCardInfo: Identifiable{
+    let id = UUID()
+    
     var ccNumber: String
     var expirationYear: Int?
     var expirationMonth: Int?
