@@ -8,31 +8,36 @@
 import SwiftUI
 import CardScan
 
-struct ContentView: View {
+protocol CardAdder{
+    func addCard(_ simpleCreditCardInfo: SimpleCreditCardInfo)
+}
+
+
+struct ContentView: View, CardAdder {
     @State private var showingCardScanner = false
-    @State private var simpleCreditCardInfoInput: SimpleCreditCardInfo?
+
     
-    func loadNewSimpleCreditCardInfo(){
-        guard let cc =  simpleCreditCardInfoInput else {return}
-        print("add new creditcard \(cc.ccNumber)")
-        simpleCreditCardInfoInput = nil
+    func addCard(_ simpleCreditCardInfo: SimpleCreditCardInfo){
+
+        print("add new creditcard \(simpleCreditCardInfo.ccNumber)")
+
     }
     
     
     var body: some View {
-        VStack{
-            Text("Hello, world!")
-                .padding()
-            
-            Button("New with CardScan") {
-                self.showingCardScanner = true
+        NavigationView{
+            VStack{
+                Text("Hello, world!")
+                    .padding()
+                
+                NavigationLink(destination: CardScanner(cardAdder:  self)){
+                    Text("Add using CardScan")
+                }
             }
-            NavigationLink("nav to cardscan", destination: CardScanner(simpleCreditCardInfo: self.$simpleCreditCardInfoInput)) 
-        }
-        .sheet(isPresented: $showingCardScanner, onDismiss: loadNewSimpleCreditCardInfo) {
-            CardScanner(simpleCreditCardInfo: self.$simpleCreditCardInfoInput)
         }
     }
+    
+
 }
 
 struct ContentView_Previews: PreviewProvider {

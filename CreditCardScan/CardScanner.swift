@@ -4,7 +4,8 @@ import SwiftUI
 import CardScan
 
 struct CardScanner: UIViewControllerRepresentable{
-    @Binding var simpleCreditCardInfo: SimpleCreditCardInfo?
+
+    var cardAdder: CardAdder
     @Environment(\.presentationMode) var presentationMode
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
@@ -12,9 +13,7 @@ struct CardScanner: UIViewControllerRepresentable{
     }
     
     func makeUIViewController(context: Context) -> CardScan.ScanViewController  {
-        let vc =  ScanViewController.createViewController(withDelegate: context.coordinator)!
-        
-        return vc
+        ScanViewController.createViewController(withDelegate: context.coordinator)!
     }
     
     func makeCoordinator() -> Coordinator {
@@ -29,17 +28,17 @@ struct CardScanner: UIViewControllerRepresentable{
         }
         
         func userDidCancel(_ scanViewController: ScanViewController) {
-        
+            parent.presentationMode.wrappedValue.dismiss()
         }
         
         func userDidScanCard(_ scanViewController: ScanViewController, creditCard: CreditCard) {
             let simpleCard = SimpleCreditCardInfo(ccNumber: creditCard.number)
-            parent.simpleCreditCardInfo = simpleCard
+            parent.cardAdder.addCard(simpleCard)
             parent.presentationMode.wrappedValue.dismiss()
         }
         
         func userDidSkip(_ scanViewController: ScanViewController) {
-            
+            parent.presentationMode.wrappedValue.dismiss()
         }
         
         
