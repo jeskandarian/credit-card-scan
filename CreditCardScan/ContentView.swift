@@ -16,10 +16,8 @@ protocol CardAdder{
 struct ContentView: View, CardAdder {
     @State private var showingCardScanner = false
     @State var creditCards: [SimpleCreditCardInfo] = [
-        SimpleCreditCardInfo(ccNumber: "0123"),
-        SimpleCreditCardInfo(ccNumber: "0456")
     ]
-    
+
     mutating func addCard(_ simpleCreditCardInfo: SimpleCreditCardInfo){
         print("add new creditcard \(simpleCreditCardInfo.ccNumber)")
         if(creditCards.filter{$0.ccNumber == simpleCreditCardInfo.ccNumber}.count > 0){
@@ -29,25 +27,40 @@ struct ContentView: View, CardAdder {
         creditCards.append(simpleCreditCardInfo)
         print("creditCard list size: \(self.creditCards.count)")
     }
-    
-    
+
+
     var body: some View {
         NavigationView{
             VStack{
-                List(creditCards){creditCard in
-                    CreditCardRow(creditCard: creditCard)
+                List{
+                    Section(header: Text("Credit cards")){
+                        ForEach(creditCards){ creditCard in
+                            CreditCardRow(creditCard: creditCard)
+                        }
+                        .onDelete { indexSet in
+                            print("index \(indexSet.startIndex.description)")
+                            if let index = indexSet.first {
+                                print("removing index \(index)")
+                                creditCards.remove(at: index)
+                            } else {
+                                print("invalid index")
+                            }
+                        }
+                    }
                 }
-                Text("Hello, world!")
                     .padding()
-                
+
                 NavigationLink(destination: CardScanner(cardAdder:  self)){
                     Text("Add using CardScan")
+                }
+                NavigationLink(destination: YhkaplanCreditCardScanner(cardAdder: self)){
+                    Text("Add using Yhkaplan CreditCardScanner")
                 }
             }
         }
     }
-    
-    
+
+
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -32,7 +32,7 @@ struct CardScanner: UIViewControllerRepresentable{
         }
         
         func userDidScanCard(_ scanViewController: ScanViewController, creditCard: CreditCard) {
-            let simpleCard = SimpleCreditCardInfo(ccNumber: creditCard.number)
+            let simpleCard = SimpleCreditCardInfo(creditCard: creditCard)
             parent.cardAdder.addCard(simpleCard)
             parent.presentationMode.wrappedValue.dismiss()
         }

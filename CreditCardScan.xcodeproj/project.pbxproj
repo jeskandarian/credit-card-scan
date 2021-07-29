@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AD196150032A3303166A093 /* YhkaplanCreditCardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD190B361ECF55960EB97B5 /* YhkaplanCreditCardScanner.swift */; };
+		88459D2026B26229004D74FD /* CreditCardScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 88459D1F26B26229004D74FD /* CreditCardScanner */; };
 		88C8416826B2159C00D658FA /* CreditCardScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8416726B2159C00D658FA /* CreditCardScanApp.swift */; };
 		88C8416A26B2159C00D658FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C8416926B2159C00D658FA /* ContentView.swift */; };
 		88C8416C26B215A100D658FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88C8416B26B215A100D658FA /* Assets.xcassets */; };
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6AD190B361ECF55960EB97B5 /* YhkaplanCreditCardScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YhkaplanCreditCardScanner.swift; sourceTree = "<group>"; };
 		88C8416426B2159C00D658FA /* CreditCardScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreditCardScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C8416726B2159C00D658FA /* CreditCardScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardScanApp.swift; sourceTree = "<group>"; };
 		88C8416926B2159C00D658FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88459D2026B26229004D74FD /* CreditCardScanner in Frameworks */,
 				88C8419126B2194300D658FA /* CardScan in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,12 +105,13 @@
 			isa = PBXGroup;
 			children = (
 				88C8419526B21A9900D658FA /* views */,
-				88C8419226B219EC00D658FA /* domain */,
+				88C8419226B219EC00D658FA /* model */,
 				88C8416726B2159C00D658FA /* CreditCardScanApp.swift */,
 				88C8416926B2159C00D658FA /* ContentView.swift */,
 				88C8416B26B215A100D658FA /* Assets.xcassets */,
 				88C8416D26B215A100D658FA /* Preview Content */,
 				88C8419626B21DFC00D658FA /* CardScanner.swift */,
+				6AD190B361ECF55960EB97B5 /* YhkaplanCreditCardScanner.swift */,
 			);
 			path = CreditCardScan;
 			sourceTree = "<group>";
@@ -135,12 +140,12 @@
 			path = CreditCardScanUITests;
 			sourceTree = "<group>";
 		};
-		88C8419226B219EC00D658FA /* domain */ = {
+		88C8419226B219EC00D658FA /* model */ = {
 			isa = PBXGroup;
 			children = (
 				88C8419326B21A1200D658FA /* SimpleCreditCardInfo.swift */,
 			);
-			path = domain;
+			path = model;
 			sourceTree = "<group>";
 		};
 		88C8419526B21A9900D658FA /* views */ = {
@@ -169,6 +174,7 @@
 			name = CreditCardScan;
 			packageProductDependencies = (
 				88C8419026B2194300D658FA /* CardScan */,
+				88459D1F26B26229004D74FD /* CreditCardScanner */,
 			);
 			productName = CreditCardScan;
 			productReference = 88C8416426B2159C00D658FA /* CreditCardScan.app */;
@@ -243,7 +249,8 @@
 			);
 			mainGroup = 88C8415B26B2159B00D658FA;
 			packageReferences = (
-				88C8418F26B2194300D658FA /* XCRemoteSwiftPackageReference "cardscan-ios" */,
+				88C8418F26B2194300D658FA /* XCRemoteSwiftPackageReference "cardscan-ios.git" */,
+				88459D1E26B26229004D74FD /* XCRemoteSwiftPackageReference "credit-card-scanner.git" */,
 			);
 			productRefGroup = 88C8416526B2159C00D658FA /* Products */;
 			projectDirPath = "";
@@ -292,6 +299,7 @@
 				88C8419426B21A1200D658FA /* SimpleCreditCardInfo.swift in Sources */,
 				88C8416A26B2159C00D658FA /* ContentView.swift in Sources */,
 				88C8416826B2159C00D658FA /* CreditCardScanApp.swift in Sources */,
+				6AD196150032A3303166A093 /* YhkaplanCreditCardScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,7 +651,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		88C8418F26B2194300D658FA /* XCRemoteSwiftPackageReference "cardscan-ios" */ = {
+		88459D1E26B26229004D74FD /* XCRemoteSwiftPackageReference "credit-card-scanner.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yhkaplan/credit-card-scanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
+		88C8418F26B2194300D658FA /* XCRemoteSwiftPackageReference "cardscan-ios.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getbouncer/cardscan-ios.git";
 			requirement = {
@@ -654,9 +670,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		88459D1F26B26229004D74FD /* CreditCardScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88459D1E26B26229004D74FD /* XCRemoteSwiftPackageReference "credit-card-scanner.git" */;
+			productName = CreditCardScanner;
+		};
 		88C8419026B2194300D658FA /* CardScan */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 88C8418F26B2194300D658FA /* XCRemoteSwiftPackageReference "cardscan-ios" */;
+			package = 88C8418F26B2194300D658FA /* XCRemoteSwiftPackageReference "cardscan-ios.git" */;
 			productName = CardScan;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -10,8 +10,16 @@ import SwiftUI
 struct CreditCardRow: View {
     let creditCard: SimpleCreditCardInfo
     var body: some View {
-        Text(self.creditCard.ccNumber)
+        VStack{
+            HStack{
+                Text(self.creditCard.ccNumber)
+                Text(" - ")
+                Text(self.creditCard.exipiration)
+            }
+            Text(self.creditCard.cardholderName ?? "[none]")
+        }
     }
+    
 }
 
 struct CreditCardRow_Previews: PreviewProvider {
